@@ -87,30 +87,32 @@ class Netrade:
                 # inference mode
                 self.model.eval()
 
-                test_loss, test_acc = 0,0
+                if X_test != None:
 
-                with torch.inference_mode():
+                    test_loss, test_acc = 0,0
 
-                    for Test_chart, Test_candle, Test_label in X_test:
+                    with torch.inference_mode():
 
-                        # make all variable to the same device
-                        Test_chart = Test_chart.to(device)
-                        Test_candle = Test_candle.to(device)
-                        Test_label = Test_label.to(device)
+                        for Test_chart, Test_candle, Test_label in X_test:
 
-                        test_logit = self.model(Test_chart, Test_candle)
-                        test_preds = torch.softmax(test_logit, dim=1).argmax(1)
+                            # make all variable to the same device
+                            Test_chart = Test_chart.to(device)
+                            Test_candle = Test_candle.to(device)
+                            Test_label = Test_label.to(device)
 
-                        # calculate accuracy
-                        acc_ = accuracy_score(test_preds, Test_label)
-                        test_acc += acc_
+                            test_logit = self.model(Test_chart, Test_candle)
+                            test_preds = torch.softmax(test_logit, dim=1).argmax(1)
 
-                        # calculate the loss
-                        loss_ = self.loss_fn(test_logit, Test_label)
-                        test_loss += loss_
+                            # calculate accuracy
+                            acc_ = accuracy_score(test_preds, Test_label)
+                            test_acc += acc_
 
-                    test_loss /= len(X_test)
-                    test_acc /= len(X_test)
+                            # calculate the loss
+                            loss_ = self.loss_fn(test_logit, Test_label)
+                            test_loss += loss_
+
+                        test_loss /= len(X_test)
+                        test_acc /= len(X_test)
 
             train_loss /= len(X_train)
             train_acc /= len(X_train)
