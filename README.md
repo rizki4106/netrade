@@ -119,6 +119,7 @@ You should put your image in this pattern:
 
     ```python
     from netrade.core import Netrade
+    import torch
 
     # initialize the model
     netrade = Netrade()
@@ -134,3 +135,39 @@ You should put your image in this pattern:
     # save the model's state
     torch.save(model.state_dict(), "name-it.pth")
     ```
+## Inference mode / Testing
+If you want to run this model in production mode then here's the step
+
+```python
+from netrade.core import Netrade
+from torchvision import transforms
+from PIL import Image
+
+# initialize the model
+netrade = Netrade(saved_state_path="path-to-saved-state.pth")
+
+# create image transformer
+# this is for chart pattern
+chart_transformer = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor()
+])
+
+# this is for candlestick pattern
+candle_transformer = transforms.Compose([
+    transforms.Resize((64, 64)),
+    transforms.ToTensor()
+])
+
+# read the chart pattern image and turn it into tensor
+chart_image = chart_transformer(Image.open("chart.png")).unsqueeze(0)
+
+# read candlestick image and turn it into tensor
+candle_image = candle_transformer(Image.open("candle.png")).unsqueeze(0)
+
+# run prediction
+preds = netrade.predict(chart_image=chart_image, candle_image=candle_image)
+
+# print the result
+print(preds.argmax(1)) # 0 price will go down, 1 price will go up
+```

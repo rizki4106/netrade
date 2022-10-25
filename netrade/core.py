@@ -87,9 +87,8 @@ class Netrade:
                 # inference mode
                 self.model.eval()
 
+                test_loss, test_acc = 0,0
                 if X_test != None:
-
-                    test_loss, test_acc = 0,0
 
                     with torch.inference_mode():
 
