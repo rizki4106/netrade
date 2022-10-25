@@ -20,12 +20,15 @@ Bechause of chart pattern has a limitation we need candle stick pattern to decid
 We've been tested this model in 1 week and here's the result:
 
 * model accuracy & loss
+
 ![chart-pattern](https://cdn.heelmet.com/files/model_performance_v2.png)
 
 * profit
 
 ![chart-pattern](https://cdn.heelmet.com/files/profit_model.png)
+
 * Win & loss rate ( 61% win 39% loss )
+
 ![chart-pattern](https://cdn.heelmet.com/files/win_and_loss_rate.png)
 
 # Installation
