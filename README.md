@@ -25,7 +25,7 @@ We've been tested this model in 1 week and here's the result:
 
 ![chart-pattern](https://cdn.heelmet.com/files/profit_model.png)
 
-* Win & loss rate
+* Win & loss rate ( 61% win 39% loss )
 ![chart-pattern](https://cdn.heelmet.com/files/win_and_loss_rate.png)
 
 # Installation
