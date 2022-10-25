@@ -5,9 +5,9 @@ Netrade is an AI trading assistant with human trader approach
 This AI model will predict the price will `go up` or `go down` based on chart pattern and candlestick pattern
 
 ### Chart Pattern
-Chart pattern is enough to price will go up or go down as usualy traders do, here's some example chart bulish pattern :
+Chart pattern is enough for analyzing price will go up or go down as usualy traders do, here's some example:
 
-chart bearish pattern :
+![chart-pattern](https://cdn.heelmet.com/files/chart-pattern.png)
 
 ### Candle Stick
 Bechause of chart pattern has a limitation we need candle stick pattern to decide when we should buy or sell, here is some example
@@ -19,10 +19,14 @@ bearish candlestick pattern:
 We've been tested this model in 1 week and here's the result:
 
 * model accuracy & loss
+![chart-pattern](https://cdn.heelmet.com/files/model_performance_v2.png)
 
 * profit
 
+![chart-pattern](https://cdn.heelmet.com/files/profit_model.png)
+
 * Win & loss rate
+![chart-pattern](https://cdn.heelmet.com/files/win_and_loss_rate.png)
 
 # Installation
 
