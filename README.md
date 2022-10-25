@@ -12,9 +12,10 @@ Chart pattern is enough for analyzing price will go up or go down as usualy trad
 ### Candle Stick
 Bechause of chart pattern has a limitation we need candle stick pattern to decide when we should buy or sell, here is some example
 
-bulish candlestick pattern :
+*first row is `bearish` candle stick pattern and the second row `bulish` candle stick*
 
-bearish candlestick pattern:
+![chart-pattern](https://cdn.heelmet.com/files/candle_chart.png)
+
 ### Performance
 We've been tested this model in 1 week and here's the result:
 
@@ -24,7 +25,6 @@ We've been tested this model in 1 week and here's the result:
 * profit
 
 ![chart-pattern](https://cdn.heelmet.com/files/profit_model.png)
-
 * Win & loss rate ( 61% win 39% loss )
 ![chart-pattern](https://cdn.heelmet.com/files/win_and_loss_rate.png)
 
