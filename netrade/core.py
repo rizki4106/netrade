@@ -34,7 +34,7 @@ class Netrade:
         self.optimizer = torch.optim.Adam(lr=0.001, params=model.parameters())
         self.loss_fn = nn.CrossEntropyLoss()
 
-    def train(self, X_train, X_test, epochs):
+    def train(self, X_train = None, X_test = None, epochs = 1):
         """Train netrade model with custom data
         
         Args:
@@ -122,7 +122,10 @@ class Netrade:
             history['accuracy'].append(train_acc.detach().cpu().numpy())
             history['val_accuracy'].append(test_acc.detach().cpu().numpy())
 
-            print(f'epoch : {epoch + 1} | loss : {train_loss:.5f} | val_loss : {test_loss:.5f} | accuracy : {train_acc:.5f} | val_accuracy : {test_acc:.5f}')
+            if X_test != None:
+                print(f'epoch : {epoch + 1} | loss : {train_loss:.5f} | val_loss : {test_loss:.5f} | accuracy : {train_acc:.5f} | val_accuracy : {test_acc:.5f}')
+            else:
+                print(f'epoch : {epoch + 1} | loss : {train_loss:.5f} | accuracy : {train_acc:.5f}')
 
         # return the result
         return self.model, history
