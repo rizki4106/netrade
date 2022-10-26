@@ -51,7 +51,8 @@ This step devided into 2 step
 
 ## Training
 
-If you want to train with your own data, here's the step
+download pre-trained model here [https://github.com/rizki4106/netrade/releases/](https://github.com/rizki4106/netrade/releases/) but
+if you want to train with your own data, here's the step
 
 * Prepare The data <br/>
 You should put your image in this pattern:
