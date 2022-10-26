@@ -1,0 +1,4 @@
+Pillow
+scikit-image
+torch
+torchmetrics
