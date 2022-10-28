@@ -38,7 +38,7 @@ We've been tested this model in 1 week and here's the result:
     git clone https://github.com/rizki4106/netrade.git
     ```
     ```bash
-    cd netrade && pip3 install torch torchmetrics scikit-image Pillow
+    cd netrade && pip3 install torch torchmetrics scikit-image Pillow torchvision
     ```
 * pypi
     ```bash
