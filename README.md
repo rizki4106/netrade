@@ -2,7 +2,9 @@
 Netrade is an AI trading assistant with human trader approach
 
 ## How it works
-This AI model will predict the price will `go up` or `go down` based on chart pattern and candlestick pattern
+This AI model will predict the price will `go up` or `go down` based on chart pattern and candlestick pattern <br/>
+
+The data is available [here](https://github.com/rizki4106/netrade/releases)
 
 ### Chart Pattern
 Chart pattern is enough for analyzing price will go up or go down as usualy traders do, here's some example:
