@@ -1,4 +1,4 @@
-Pillow
-scikit-image
 torch
 torchmetrics
+scikit-image
+Pillow

@@ -1,12 +1,11 @@
 Metadata-Version: 2.1
 Name: netrade
-Version: 1.0.0
+Version: 1.1.0
 Summary: AI trading assistant
 Home-page: https://github.com/rizki4106/netrade
 Author: Rizki Maulana
 Author-email: rizkimaulana348@gmail.com
 License: LICENCE
-Platform: UNKNOWN
 Description-Content-Type: text/markdown
 License-File: LICENCE
 
@@ -14,7 +13,9 @@ License-File: LICENCE
 Netrade is an AI trading assistant with human trader approach
 
 ## How it works
-This AI model will predict the price will `go up` or `go down` based on chart pattern and candlestick pattern
+This AI model will predict the price will `go up` or `go down` based on chart pattern and candlestick pattern <br/>
+
+The data is available [here](https://github.com/rizki4106/netrade/releases)
 
 ### Chart Pattern
 Chart pattern is enough for analyzing price will go up or go down as usualy traders do, here's some example:
@@ -50,7 +51,7 @@ We've been tested this model in 1 week and here's the result:
     git clone https://github.com/rizki4106/netrade.git
     ```
     ```bash
-    cd netrade && pip3 install torch torchmetrics scikit-image Pillow
+    cd netrade && pip3 install torch torchmetrics scikit-image Pillow torchvision
     ```
 * pypi
     ```bash
@@ -63,7 +64,8 @@ This step devided into 2 step
 
 ## Training
 
-If you want to train with your own data, here's the step
+download pre-trained model here [https://github.com/rizki4106/netrade/releases/](https://github.com/rizki4106/netrade/releases/) but
+if you want to train with your own data, here's the step
 
 * Prepare The data <br/>
 You should put your image in this pattern:
@@ -190,5 +192,3 @@ preds = netrade.predict(chart_image=chart_image, candle_image=candle_image)
 # print the result
 print(preds.argmax(1)) # 0 price will go down, 1 price will go up
 ```
-
-
