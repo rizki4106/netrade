@@ -83,6 +83,22 @@ You should put your image in this pattern:
     | filename.png | filename.png | down | 0 |
     | filename.png | filename.png | down | 0 |
     | filename.png | filename.png | up | 1 |
+
+    you can do it by using data preprocessing helper easly
+
+    ```python
+    from netrade.data import DataPreprocessing
+
+    # initialize class
+    chart = "/path/to/somwhere/chart/"
+    candle = "/path/to/somewhere/chart"
+
+    prep = DataPreprocessing(chart_path=chart, candle_path=candle)
+
+    # create dataframe
+    frame = prep.create_frame()
+    frame.head()
+    ```
 * Create image transformer
     ```python
     from torchvision import transforms

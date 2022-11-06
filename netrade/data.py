@@ -3,6 +3,7 @@ from skimage import io
 from PIL import Image
 import torch
 import os
+import pandas as pd
 
 class NetradeDataLoader(Dataset):
 
@@ -66,3 +67,49 @@ class NetradeDataLoader(Dataset):
       candle_image = self.candle_transform(candle_image)
 
     return chart_image, candle_image, labels
+
+class DataPreprocessing:
+  """
+  This class used for data pre-processing and manipulating needs
+  """
+
+  def __init__(self, chart_path, candle_path):
+
+    self.chart_path = chart_path
+    self.candle_path = candle_path
+
+  def create_frame(self):
+    """Generate pandas data frame for use in netrade data loader
+
+    Args: 
+      chart_path : str -> path to chart image data
+      candle_path : str -> path to candle stick image data
+
+    Returns:
+      frame : pandas dataframe -> return pandas data frame
+    """
+
+    result = []
+
+    # loop to folder for each classes e.g candlestick -> down
+    for classes in os.listdir(self.candle_path):
+
+      # loop all files inside each classes
+      for candle in os.listdir(os.path.join(self.candle_path, classes)):
+
+        # loop all chart data
+        for chart in os.listdir(os.path.join(self.chart_path, classes)):
+          
+          context = {}
+          context['chart_name'] = chart
+          context['candle_name'] = candle
+          context['path'] = classes
+          context['label'] = 0 if classes == "down" else 1
+
+          # concat all data to result variable
+          result.append(context)
+    
+    frame = pd.DataFrame(result)
+    frame = frame.sample(frac=1)
+
+    return frame
