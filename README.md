@@ -91,7 +91,7 @@ You should put your image in this pattern:
 
     # initialize class
     chart = "/path/to/somwhere/chart/"
-    candle = "/path/to/somewhere/chart"
+    candle = "/path/to/somewhere/candle"
 
     prep = DataPreprocessing(chart_path=chart, candle_path=candle)
 
