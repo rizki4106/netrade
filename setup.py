@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="netrade",
-    version="1.1.1",
+    version="1.1.2",
     author="Rizki Maulana",
     author_email="rizkimaulana348@gmail.com",
     packages=["netrade"],

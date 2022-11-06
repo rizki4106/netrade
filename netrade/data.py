@@ -78,7 +78,7 @@ class DataPreprocessing:
     self.chart_path = chart_path
     self.candle_path = candle_path
 
-  def create_frame(self):
+  def create_frame(self, shuffle : bool = False):
     """Generate pandas data frame for use in netrade data loader
 
     Args: 
@@ -110,6 +110,9 @@ class DataPreprocessing:
           result.append(context)
     
     frame = pd.DataFrame(result)
-    frame = frame.sample(frac=1)
+
+    # shuffle data if needed
+    if shuffle:
+      frame = frame.sample(frac=1)
 
     return frame
