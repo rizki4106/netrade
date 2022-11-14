@@ -1,7 +1,17 @@
 # Netrade
 Netrade is an AI trading assistant with human trader approach
 
-## How it works
+## Table of contents
+1. [How it works](#how-it-works)
+2. [Performance Result](#performance)
+3. [Installation](#installation)
+4. [Usage](#usage)
+    1. [Training](#training)
+4. [Inference Mode or Testing](#inference-mode--testing)
+    1. [Prepare Real-time Data](#real-time-data)
+    2. [Run in real world and real-time data](#final-preparation)
+
+## How it works <div id='how-it-works'/>
 This AI model will predict the price will `go up` or `go down` based on chart pattern and candlestick pattern <br/>
 
 The data is available [here](https://github.com/rizki4106/netrade/releases)
@@ -163,7 +173,7 @@ You should put your image in this pattern:
     ```
 ## Inference mode / Testing
 ### Real-time Data
-If you want to use this model in real time data, you should prepare the comodity price history i.e `bitcoin` or `tesla` stock price. in this example i'll be using yfinance to grab the historical data
+If you want to use this model in real time data, you should prepare the comodity price history i.e `bitcoin` or `tesla` stock price. in this example I'll be using `yfinance` to grab the historical data
 
 ```python
 from netrade.data import data_creation
@@ -188,6 +198,7 @@ plt.imshow(chart_image)
 plt.imshow(candle_image)
 ```
 
+### Final Preparation
 It's time to predict real - time price, let's put everything together
 
 ```python
