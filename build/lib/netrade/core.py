@@ -18,7 +18,7 @@ class Netrade:
         model = NetradeV2(
             chart_channels=3,
             candle_channels=3,
-            hidden_units=10,
+            hidden_units=28,
             output_features=2
         ).to(device)
 

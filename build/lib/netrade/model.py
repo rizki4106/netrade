@@ -42,7 +42,7 @@ class NetradeV2(nn.Module):
                   padding="valid"),
         
         nn.ReLU(),
-        nn.MaxPool2d(kernel_size=2)
+        # nn.MaxPool2d(kernel_size=2)
     )
 
     self.block_2_chart = nn.Sequential(
@@ -88,7 +88,7 @@ class NetradeV2(nn.Module):
                   padding=1),
         
         nn.ReLU(),
-        nn.MaxPool2d(kernel_size=2)
+        # nn.MaxPool2d(kernel_size=2)
     )
 
     self.block_2_candle = nn.Sequential(
@@ -106,13 +106,13 @@ class NetradeV2(nn.Module):
                   padding=1,
                   ),
         nn.ReLU(),
-        nn.MaxPool2d(kernel_size=2),
+        # nn.MaxPool2d(kernel_size=2),
         nn.Flatten()
     )
 
     # output layer
     self.classifier = nn.Sequential(
-        nn.Linear(in_features=32050,out_features=output_features)
+        nn.Linear(in_features=458360,out_features=output_features)
     )
 
 
@@ -139,5 +139,4 @@ class NetradeV2(nn.Module):
 
     # return output layer
     out = self.classifier(merge)
-
     return out

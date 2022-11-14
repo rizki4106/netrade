@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="netrade",
-    version="1.2.2",
+    version="1.2.3",
     author="Rizki Maulana",
     author_email="rizkimaulana348@gmail.com",
     packages=["netrade"],
@@ -14,7 +14,6 @@ setup(
     install_requires=[
         "torch",
         "torchmetrics",
-        "scikit-image",
         "Pillow",
         "mplfinance",
         "numpy",
