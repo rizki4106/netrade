@@ -1,6 +1,5 @@
 torch
 torchmetrics
-scikit-image
 Pillow
 mplfinance
 numpy
