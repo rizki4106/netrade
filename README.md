@@ -162,12 +162,40 @@ You should put your image in this pattern:
     torch.save(model.state_dict(), "name-it.pth")
     ```
 ## Inference mode / Testing
-If you want to run this model in production mode then here's the step
+### Real-time Data
+If you want to use this model in real time data, you should prepare the comodity price history i.e `bitcoin` or `tesla` stock price. in this example i'll be using yfinance to grab the historical data
 
 ```python
+from netrade.data import data_creation
+import yfinance as yf
+import matplotlib.pyplot as plt
+
+#
+ticker = yf.Ticker('BTC-USD')
+data = ticker.history(period="7d", interval="15m")
+
+# create chart image from realtime history data
+# take the last 50 candle stick bar
+chart_image = data_creation.create_image(data=data[-50:, :])
+
+# take the last 3 candle stick bar
+candle_image = data_creation.create_image(data=data[-3:, :])
+
+# create_image returns PIL image class that you can use directly with pytorch
+
+# you can show it by the way
+plt.imshow(chart_image)
+plt.imshow(candle_image)
+```
+
+It's time to predict real - time price, let's put everything together
+
+```python
+from netrade.data import data_creation
 from netrade.core import Netrade
 from torchvision import transforms
 from PIL import Image
+import yfinance as yf
 
 # initialize the model
 netrade = Netrade(saved_state_path="path-to-saved-state.pth")
@@ -185,11 +213,17 @@ candle_transformer = transforms.Compose([
     transforms.ToTensor()
 ])
 
-# read the chart pattern image and turn it into tensor
-chart_image = chart_transformer(Image.open("chart.png")).unsqueeze(0)
+# load realtime data
+ticker = yf.Ticker('BTC-USD')
+data = ticker.history(period="7d", interval="15m")
 
-# read candlestick image and turn it into tensor
-candle_image = candle_transformer(Image.open("candle.png")).unsqueeze(0)
+# create chart image from real-time data
+chart_image = data_creation.create_image(data=data[-50:, :])
+candle_image = data_creation.create_image(data=data[-3:, :])
+
+# turn image into tensor
+chart_image = chart_transformer(chart_image)
+candle_image = candle_transformer(candle_image)
 
 # run prediction
 preds = netrade.predict(chart_image=chart_image, candle_image=candle_image)
