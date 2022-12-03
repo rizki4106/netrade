@@ -129,7 +129,7 @@ You should put your image in this pattern:
     ```python
     from netrade.data import NetradeDataLoader
 
-    # supposed you have created csv file like i mention above
+    # supposed you have created csv file like I mention above
     frame = pd.read_csv("file_training.csv")
 
     # load data and turn it into tensor
